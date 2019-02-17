@@ -3,26 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Area; // we are pulling our are from our nested set
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    
     public function index()
     {
-        return view('home');
+        // we need to pass out areas
+        $areas = Area::get()->toTree(); // we are getting a collection will ability to loop through all the children
+        return view('home', compact('areas')); 
     }
 }
