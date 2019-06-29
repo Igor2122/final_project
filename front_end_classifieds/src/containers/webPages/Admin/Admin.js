@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import getJwt from '../../../utilites/jwt';
-import {Container, Row, Col} from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import LoginForm from '../../../components/LoginForm/LoginForm';
 import {
   BrowserRouter as Router, Route,
@@ -30,37 +30,35 @@ class Admin extends Component {
 
 
     let currentLocUrl = '/admin'; //this.props.location.pathname; -- throwing an error
-    
+
     return (
       <div>
         <div>
-          <Navigation/>
+          <Navigation />
           <div className="mt-5"></div>
           <Router>
             <Container>
               <Row>
                 <Col md='4'>
-                  {this.props.loggedInStatus || getJwt()
-                    ? <AdminNavigatoion/>
-                    : <Redirect to="/admin/login"/>}
+                  <AdminNavigatoion />
                 </Col>
                 <Col md='8'>
                   <Route
                     exact
                     path={currentLocUrl + '/add_product'}
-                    component={() => <AddNewProductForm/>}></Route>
+                    component={() => <AddNewProductForm />}></Route>
                   <Route
                     exact
                     path={currentLocUrl + '/allProductsList'}
-                    component={() => <AdminProductList/>}></Route>
+                    component={() => <AdminProductList />}></Route>
                 </Col>
               </Row>
               <Route
                 path={currentLocUrl + '/login'}
-                component={() => 
-                <LoginForm
-                getinputvalues={this.getInputFormValue}
-                submitform={this.submitForm}/>}>
+                component={() =>
+                  <LoginForm
+                    getinputvalues={this.getInputFormValue}
+                    submitform={this.submitForm} />}>
               </Route>
               <Route path={currentLocUrl + '/register'} component={RegistrationPage}></Route>
             </Container>
@@ -71,12 +69,6 @@ class Admin extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {loggedInStatus: state.login.userLoggedIn}
-}
 
-// const mapDispatchToProps = dispatch => {   return {     userLoggedInStatus:
-// (isLoggedIn) => dispatch({type: actionTypes.USERLOGGEDIN, payload:
-// isLoggedIn}),   } }
 
-export default connect(mapStateToProps, null)(Admin);
+export default connect(null, null)(Admin);

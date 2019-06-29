@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Card from '../../components/productCardTypes/verticalCard/verticalCard';
 
 class CardsContainer extends Component {
@@ -13,17 +13,17 @@ class CardsContainer extends Component {
         .map(res => {
           let singleCard = '';
           let allProducts = Object.keys(res.product);
-          allProducts.map(() => {
+          allProducts.map(() =>
             singleCard = <Card
               key={res.product.id}
-              productData = {res.product}
+              productData={res.product}
               images={res.images}
               productView={() => {
-              this
-                .props
-                .getClickedId(res.id)
-            }}/>
-          })
+                this
+                  .props
+                  .getClickedId(res.id)
+              }} />
+          )
           return singleCard;
         });
     }

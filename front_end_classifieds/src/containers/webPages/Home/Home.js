@@ -11,7 +11,6 @@ import CategoriesNav from '../../../components/categoriesDropDown/categoriesDrop
 import Jumbotron from '../../../components/categorisJumbotr/categorisJumbotr';
 import AddsCardSection from '../../sections/AddsCardSection';
 import Navigation from '../../../components/UI/Navigation/Navigation';
-import SingleProductView from '../SingleProductView/SingleProductView';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../store/actions/getAllproducts'
 

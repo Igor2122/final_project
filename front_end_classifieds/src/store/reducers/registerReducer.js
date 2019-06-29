@@ -1,6 +1,5 @@
 import fetchLoginRegister from '../../axios_routes/auth_routes';
 import * as actionTypes from '../actions/actions';
-import {push} from 'react-router-redux'
 
 const initialState = {
   userLoggedIn: false,
@@ -22,7 +21,7 @@ const reducer = (state = initialState, action) => {
       }
 
     case actionTypes.REGISTRATONCHANGED:
-    
+
       console.log(action.event.target.value)
       let newState = {
         ...state
@@ -36,11 +35,11 @@ const reducer = (state = initialState, action) => {
 
       fetchLoginRegister
         .post('/register', {
-        name: state.userRegistrationInfo.name,
-        email: state.userRegistrationInfo.email,
-        password: state.userRegistrationInfo.password,
-        password_confirmation: state.userRegistrationInfo.password_confirmation
-      })
+          name: state.userRegistrationInfo.name,
+          email: state.userRegistrationInfo.email,
+          password: state.userRegistrationInfo.password,
+          password_confirmation: state.userRegistrationInfo.password_confirmation
+        })
         .then(res => {
           localStorage.setItem('login-jwt', res.data)
           return {
@@ -49,8 +48,8 @@ const reducer = (state = initialState, action) => {
           }
         })
 
-      default:
-      break;
+    default:
+      return ''
   }
 
   return state;
