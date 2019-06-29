@@ -47,7 +47,7 @@ class RegistrationPage extends Component {
             label_for={formElements.label_for}
             title={formElements.label_for}
             formdata={(e) => this.getUserInput(e)} />)}
-          <Button onClick={this.props.registration}>Register</Button>
+          <Button onClick={() => this.props.registration(this.state)}>Register</Button>
           <Button>
             <Link to="/admin/login">Login</Link>
           </Button>
@@ -61,7 +61,7 @@ class RegistrationPage extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    registration: (val) => dispatch(actionTypes.userRegistrationStart('something'))
+    registration: (val) => dispatch(actionTypes.userRegistrationStart(val))
   }
 }
 
