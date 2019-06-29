@@ -8,7 +8,8 @@ export {
 export {
   
   userRegistrationWatch,
-  userRegistrationStart
+  userRegistrationStart,
+  userRegistrationPost
 } from './userRegisterAction';
 
 export {

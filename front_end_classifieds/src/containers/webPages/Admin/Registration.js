@@ -61,7 +61,7 @@ class RegistrationPage extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    registration: (val) => dispatch(actionTypes.userRegistrationStart(val))
+    registration: (val) => dispatch(actionTypes.userRegistrationWatch(val))
   }
 }
 
