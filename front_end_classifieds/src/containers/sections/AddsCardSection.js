@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Card from '../../components/productCardTypes/verticalCard/verticalCard';
-// import {type} from 'os';
 
 class CardsContainer extends Component {
 
