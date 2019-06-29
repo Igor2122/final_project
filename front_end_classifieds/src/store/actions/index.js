@@ -4,11 +4,12 @@ export {
   registrationSubmit,
 } from './userLogin';
 
+
 export {
-  userLoggedInChange,
-  submitLoginForm,
-  sendLoginForm
-} from './userRegister';
+  
+  userRegistrationWatch,
+  userRegistrationStart
+} from './userRegisterAction';
 
 export {
   getAllProducts

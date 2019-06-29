@@ -4,7 +4,7 @@ import { Button, Spinner } from 'reactstrap';
 import getJwt from '../../../utilites/jwt';
 import FormComponent from '../../../components/form/input';
 import registrationFromSettings from '../../../config_files/registrationForm';
-import * as actionTypes from '../../../store/actions/acitonConst';
+import * as actionTypes from '../../../store/actions/';
 
 import { Redirect, Link } from "react-router-dom";
 
@@ -47,7 +47,7 @@ class RegistrationPage extends Component {
             label_for={formElements.label_for}
             title={formElements.label_for}
             formdata={(e) => this.getUserInput(e)} />)}
-          <Button onClick={this.checkForLoggedInUser}>Register</Button>
+          <Button onClick={this.props.registration}>Register</Button>
           <Button>
             <Link to="/admin/login">Login</Link>
           </Button>
@@ -59,6 +59,11 @@ class RegistrationPage extends Component {
 
 
 
+const mapDispatchToProps = dispatch => {
+  return {
+    registration: (val) => dispatch(actionTypes.userRegistrationStart('something'))
+  }
+}
 
 
-export default connect(null, null)(RegistrationPage);
+export default connect(null, mapDispatchToProps)(RegistrationPage);

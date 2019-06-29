@@ -10,6 +10,8 @@ import registerReducer from './store/reducers/registerReducer';
 import getProducts from './store/reducers/getAllProducts';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
+import { watchLoginRegisterSaga } from './store/saga/';
+
 
 
 
@@ -25,6 +27,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware))
 );
+
+sagaMiddleware.run(watchLoginRegisterSaga);
 
 ReactDOM.render(
   <Provider store={store}><App /></Provider>, document.getElementById('root'));
