@@ -2,7 +2,7 @@ import * as actionTypes from './actionConst';
 
 export const userRegistrationWatch = (payload) => {
   console.log(payload)
-  return {type: actionTypes.REGISTRATION_WATCH, payload}
+  return {type: actionTypes.REGISTRATION_INIT, payload}
 }
 
 export const userRegistrationStart = () => {

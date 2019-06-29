@@ -6,5 +6,5 @@ import { registrationSaga } from "./registerLoginSaga";
 
 export function* watchLoginRegisterSaga () {
   console.log('saga running')
-  yield takeEvery(actionTypes.REGISTRATION_WATCH, registrationSaga)
+  yield takeEvery(actionTypes.REGISTRATION_INIT, registrationSaga)
 }
