@@ -1,17 +1,17 @@
-import * as actionTypes from './allProductAction';
+import * as actionTypes from './actionConst'
 
-export const userLoggedIn = () => {
-  return {type: actionTypes.USERLOGGEDIN}
+
+
+export const loginPost = (payload) => {
+  console.log(payload)
+  return {type: actionTypes.LOGIN_POST, payload}
 }
 
-export const redirect = () => {
-  return {type: actionTypes.REDIRECT}
+
+export const loginSuccess = () => {
+  return {type: actionTypes.LOGIN_SUCCESS}
 }
 
-export const registrationChanged = event => {
-  return {type: actionTypes.REGISTRATONCHANGED, event: event}
-}
-
-export const registrationSubmit = event => {
-  return {type: actionTypes.SUBMITREGISTRATIONFORM}
+export const loginFail = () => {
+  return {type: actionTypes.LOGIN_FAIL}
 }

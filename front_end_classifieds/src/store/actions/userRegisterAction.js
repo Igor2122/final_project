@@ -5,12 +5,18 @@ export const userRegistrationWatch = (payload) => {
 }
 
 export const userRegistrationStart = () => {
-  console.log('user reg start')
   return {type: actionTypes.REGISTRATION_START}
 }
 export const userRegistrationPost = () => {
-  console.log('post')
   return {type: actionTypes.REGISTRATION_POST}
 }
+export const userRegistrationSuccess = () => {
+  return {type: actionTypes.REGISTRATION_SUCCESS}
+}
+export const userRegistrationFail = () => {
+  return {type: actionTypes.REGISTRATION_FAIL}
+}
+
+
 
 

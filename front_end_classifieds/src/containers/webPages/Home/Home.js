@@ -28,7 +28,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.getAllProducts();
+    // this.props.getAllProducts();
     
     fetchCategories
       .get()

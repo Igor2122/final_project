@@ -11,9 +11,20 @@ const initialState = Map({
 const reducer = (state = initialState, action) => {
 
   switch (action.type) {
-    case actionTypes.REGISTRATION_START:
-      return state.set('registrationStarted', true).set('userRegistrationInfo', action.payload);
+    case actionTypes.REGISTRATION_INIT:
+      {
+        return state.set('registrationStarted', true).set('userRegistrationInfo', action.payload);
+      }
 
+    case actionTypes.REGISTRATION_SUCCESS:
+      {
+        return state.set('registrationStarted', true).set('userLoggedIn', true)
+      }
+
+    case actionTypes.REGISTRATION_FAIL:
+      {
+        return state.set('registrationStarted', false).set('userLoggedIn', false)
+      }
     default:
       return state;
   }

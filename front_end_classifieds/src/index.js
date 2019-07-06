@@ -10,7 +10,7 @@ import registerReducer from './store/reducers/registerReducer';
 import getProducts from './store/reducers/getAllProducts';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import { watchLoginRegisterSaga } from './store/saga/';
+import { watchLoginRegisterSaga, watchLoginSaga } from './store/saga/';
 
 
 
@@ -29,6 +29,8 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchLoginRegisterSaga);
+sagaMiddleware.run(watchLoginSaga);
+
 
 ReactDOM.render(
   <Provider store={store}><App /></Provider>, document.getElementById('root'));

@@ -8,10 +8,24 @@ import {
 } from "react-router-dom";
 import FormComponent from '../form/input';
 import { connect } from 'react-redux';
+import * as actions from '../../store/actions'
 
 class LoginFrom extends Component {
 
+
+  state = {
+    email: '',
+    password: ''
+  }
+
+  setUserInput = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
+    console.log(this.state)
     return (
       <div>
         {loginForm.map(formElements => <FormComponent
@@ -21,8 +35,9 @@ class LoginFrom extends Component {
           type={formElements.type}
           label_for={formElements.label_for}
           title={formElements.label_for}
+          formdata={(e) => this.setUserInput(e)}
         />)}
-        <Button id="login" >
+        <Button onClick={() => this.props.submitLogin(this.state)} id="login" >
           Submit
         </Button>
         <Button id="register">
@@ -34,5 +49,11 @@ class LoginFrom extends Component {
 
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    submitLogin: (data) => dispatch(actions.loginPost(data))
+  }
+}
 
-export default connect(null, null)(LoginFrom)
+
+export default connect(null, mapDispatchToProps)(LoginFrom)

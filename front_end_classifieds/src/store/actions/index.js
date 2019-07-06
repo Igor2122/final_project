@@ -1,7 +1,7 @@
 export {
-  userLoggedIn,
-  registrationChanged,
-  registrationSubmit,
+  loginPost,
+  loginSuccess,
+  loginFail
 } from './userLogin';
 
 
@@ -9,7 +9,9 @@ export {
   
   userRegistrationWatch,
   userRegistrationStart,
-  userRegistrationPost
+  userRegistrationPost,
+  userRegistrationSuccess,
+  userRegistrationFail
 } from './userRegisterAction';
 
 export {

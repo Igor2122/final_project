@@ -17,6 +17,8 @@ class RegistrationPage extends Component {
     password_confirmation: null
   }
 
+  
+
   componentDidMount() {
 
     if (getJwt()) {
@@ -31,11 +33,8 @@ class RegistrationPage extends Component {
   }
 
   render() {
-    console.log(this.state)
-
-
-
-  return (
+    
+    return (
       <div>
         <h1>Registration Page</h1>
         <div>
@@ -47,7 +46,7 @@ class RegistrationPage extends Component {
             label_for={formElements.label_for}
             title={formElements.label_for}
             formdata={(e) => this.getUserInput(e)} />)}
-          <Button onClick={() => this.props.registration(this.state)}>Register</Button>
+          <Button disabled={this.props.registrationStarted} onClick={() => this.props.registration(this.state)}>Register</Button>
           <Button>
             <Link to="/admin/login">Login</Link>
           </Button>
@@ -57,7 +56,12 @@ class RegistrationPage extends Component {
   }
 }
 
-
+const mapStateToProps = state => {
+  return {
+    userLoggedIn: state.registerReducer.get('userLoggedIn'),
+    registrationStarted: state.registerReducer.get('registrationStarted')
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -66,4 +70,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(null, mapDispatchToProps)(RegistrationPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationPage);

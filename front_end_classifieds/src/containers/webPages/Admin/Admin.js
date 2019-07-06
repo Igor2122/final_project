@@ -5,16 +5,19 @@ import { Container, Row, Col } from 'reactstrap';
 import LoginForm from '../../../components/LoginForm/LoginForm';
 import {
   BrowserRouter as Router, Route,
-  // Link, withRouter
   Redirect
 } from "react-router-dom";
 import AddNewProductForm from '../../../components/forms/addNewProductForm';
 import Navigation from '../../../components/UI/Navigation/Navigation';
-import AdminNavigatoion from '../../../components/UI/AdminNavigatoion/AdminNavigatoion'
+import AdminNavigation from '../../../components/UI/AdminNavigation/AdminNavigation';
 import AdminProductList from '../../../components/AdminProductList/AdminProductList';
 import RegistrationPage from '../Admin/Registration';
 
 class Admin extends Component {
+
+  state = {
+    loggedIn: false,
+  }
 
   componentWillUpdate() {
     if (getJwt()) {
@@ -40,7 +43,7 @@ class Admin extends Component {
             <Container>
               <Row>
                 <Col md='4'>
-                  <AdminNavigatoion />
+                  <AdminNavigation />
                 </Col>
                 <Col md='8'>
                   <Route
